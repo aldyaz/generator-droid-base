@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    defaultConfig {
+        applicationId "<%= appPackage %>"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.compileSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        release.java.srcDirs += 'src/release/kotlin'
+        debug.java.srcDirs += 'src/debug/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.androidX.appCompat
+    implementation rootProject.androidX.core
+    implementation rootProject.androidX.design
+    implementation rootProject.androidX.supportAnnotations
+    implementation rootProject.androidX.ktx
+
+    implementation rootProject.androidX.lifecycleExtension
+    kapt rootProject.androidX.lifecycleCompiler
+
+    implementation rootProject.net.retrofit
+    implementation rootProject.net.gsonConverter
+    implementation rootProject.net.rxJavaAdapter
+    implementation rootProject.net.okHttpLogging
+
+    implementation rootProject.rx.rxJava
+    implementation rootProject.rx.rxAndroid
+
+    implementation rootProject.dagger.core
+    implementation rootProject.dagger.android
+    implementation rootProject.dagger.androidSupport
+    kapt rootProject.dagger.processor
+    kapt rootProject.dagger.compiler
+
+    implementation rootProject.kotlin.stdlib
+
+    implementation rootProject.glide.core
+    implementation rootProject.stetho.core
+
+    testImplementation rootProject.test.junit
+
+    androidTestImplementation rootProject.test.androidRunner
+    androidTestImplementation rootProject.test.androidRules
+    androidTestImplementation rootProject.test.espressoCore
+}
+
+repositories {
+    mavenCentral()
+}

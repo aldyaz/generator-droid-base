@@ -1,0 +1,37 @@
+{
+  "name": "generator-droid-base",
+  "version": "1.0.0",
+  "description": "An 'ready-set-go' Android project template that reduce time to create same project with common codebase",
+  "homepage": "https://github.com/aldyaz/generator-droid-base",
+  "author": {
+    "name": "Aldyaz",
+    "email": "aldyaz14@gmail.com",
+    "url": "https://github.com/aldyaz"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/app/index.js",
+  "keywords": [
+    "Android",
+    "Kotlin",
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "glob": "^7.1.6",
+    "mkdirp": "^1.0.4",
+    "yeoman-generator": "^4.9.0",
+    "yosay": "^2.0.2",
+    "simple-git": "^2.2.0",
+    "rimraf": "^3.0.2",
+    "chalk": "^4.0.0",
+    "ncp": "^2.0.0",
+    "path": "^0.12.7",
+    "replace": "^1.2.0",
+    "mv": "^2.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldyaz/generator-droid-base.git"
+  }
+}
