@@ -2,10 +2,10 @@
 
 Yeoman generator for [this](https://github.com/aldyaz/skeleton-android-project) Android project
 
-### Forked from
+## Forked from
 [androidstarters/generator-kotlin-android](https://github.com/androidstarters/generator-kotlin-android)
 
-### Credit to
+## Thanks to
 [esafirm](https://github.com/esafirm)
 
 [androidstarters](https://github.com/androidstarters)
