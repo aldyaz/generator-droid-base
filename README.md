@@ -6,5 +6,6 @@ Yeoman generator for [this](https://github.com/aldyaz/skeleton-android-project) 
 [androidstarters/generator-kotlin-android](https://github.com/androidstarters/generator-kotlin-android)
 
 ### Credit to
-[esafirm](https://github.com/esafirm)\n
+[esafirm](https://github.com/esafirm)
+
 [androidstarters](https://github.com/androidstarters)
