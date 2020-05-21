@@ -34,13 +34,13 @@ module.exports = class extends Generator {
         name: 'targetSdk',
         message: 'What Android SDK will you be targeting?',
         store: true,
-        default: 28
+        default: 29
       },
       {
         name: 'minSdk',
         message: 'What is the minimum Android SDK you wish to support?',
         store: true,
-        default: 19
+        default: 21
       }];
 
     return this.prompt(prompts).then(props => {
@@ -69,12 +69,12 @@ module.exports = class extends Generator {
 
     var appPath = this.sourceRoot() + '/' + appFolder + '/';
 
-    this.fs.copy(appPath + '.gitignore', '.gitignore');
+    this.fs.copy(appPath + 'gitignore', '.gitignore');
     this.fs.copy(appPath + 'gradle.properties', 'gradle.properties');
     this.fs.copy(appPath + 'gradlew', 'gradlew');
     this.fs.copy(appPath + 'gradlew.bat', 'gradlew.bat');
     this.fs.copy(appPath + 'settings.gradle', 'settings.gradle');
-    this.fs.copy(appPath + 'app/.gitignore', 'app/.gitignore');
+    this.fs.copy(appPath + 'app/gitignore', 'app/.gitignore');
 
     this.fs.copy(appPath + 'buildconfig/dependencies.gradle', 'buildconfig/dependencies.gradle');
 

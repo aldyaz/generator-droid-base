@@ -15,7 +15,7 @@ console.log('Running… ');
 rimraf.sync(tempDir);
 
 sgit().clone('https://github.com/aldyaz/skeleton-android-project.git', tempDir)
-  .then(function () {
+  .then(async function () {
     return clearTemplate().then(() => checkOutAndCopy());
   })
   .catch(function (err) {
@@ -33,14 +33,14 @@ function checkOutAndCopy() {
     silent: true
   });
 
-  mv('/.gitignore', '/gitignore', function (err) {
+  mv(tempDir + '/.gitignore', tempDir + '/gitignore', function (err) {
     if (err) {
       console.log(err);
     }
     console.log('Renamed root folder .gitignore');
   });
 
-  mv('/app/.gitignore', '/app/gitignore', function (err) {
+  mv(tempDir + '/app/.gitignore', tempDir + '/app/gitignore', function (err) {
     if (err) {
       console.log(err);
     }
