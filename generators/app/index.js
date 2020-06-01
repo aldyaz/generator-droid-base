@@ -46,8 +46,8 @@ module.exports = class extends Generator {
       }];
 
     return this.prompt(prompts).then(props => {
-      this.props.appPackage = props.package;
       this.props.appName = props.name;
+      this.props.appPackage = props.package;
       this.props.androidTargetSdkVersion = props.targetSdk;
       this.props.androidMinSdkVersion = props.minSdk;
     });
@@ -95,7 +95,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(appPath + 'app/src/main/kotlin/' + currentPath, 'app/src/main/kotlin/' + packageDir, this.props);
     this.fs.copyTpl(appPath + 'app/src/main/res/layout', 'app/src/main/res/layout', this.props);
     this.fs.copyTpl(appPath + 'app/src/test/kotlin/' + currentPath, 'app/src/test/kotlin/' + packageDir, this.props);
-    this.fs.copyTpl(appPath + 'app/src/main/res/values/strings.xml', this.props);
+    this.fs.copyTpl(appPath + 'app/src/main/res/values/strings.xml', 'app/src/main/res/values/strings.xml', this.props);
   }
 
   end() {
