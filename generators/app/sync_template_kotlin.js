@@ -22,8 +22,35 @@ sgit().clone('https://github.com/aldyaz/skeleton-android-project.git', tempDir)
     console.log(err);
   });
 
+function clearTemplate() {
+  return new Promise(resolve => {
+    rimraf.sync(path.join(__dirname, `/templates/${appPath}/*`));
+    rimraf.sync(path.join(__dirname, `/templates/${appPath}/.*`));
+    resolve();
+  });
+}
+  
 function checkOutAndCopy() {
   console.log('Setting up code base…');
+
+  const PLACEHOLDER = "_placeholder_"
+  const configReplace = [
+    {
+      symbol: '<%= appName %>',
+      replace: '<string name="app_name">SampleApp</string>',
+      replacement: `<string name="app_name">${PLACEHOLDER}</string>`
+    },
+    {
+      symbol: '<%= androidMinSdkVersion %>',
+      replace: 'compileSdkVersion = 28',
+      replacement: `compileSdkVersion = ${PLACEHOLDER}`
+    },
+    {
+      symbol: '<%= appName %>',
+      replace: 'minSdkVersion = 19',
+      replacement: `minSdkVersion = ${PLACEHOLDER}`
+    }
+  ]
 
   replace({
     regex: 'com.example.app',
@@ -33,29 +60,15 @@ function checkOutAndCopy() {
     silent: true
   });
 
-  replace({
-    regex: '<string name="app_name">SampleApp</string>',
-    replacement: '<string name="app_name"><%= appName %></string>',
-    path: [tempDir],
-    recursive: true,
-    silent: true
-  });
-
-  replace({
-    regex: 'compileSdkVersion = 28',
-    replacement: 'compileSdkVersion = <%= androidTargetSdkVersion %>',
-    path: [tempDir],
-    recursive: true,
-    silent: true
-  });
-
-  replace({
-    regex: 'minSdkVersion = 19',
-    replacement: 'minSdkVersion = <%= androidMinSdkVersion %>',
-    path: [tempDir],
-    recursive: true,
-    silent: true
-  });
+  configReplace.forEach(config => {
+    replace({
+      regex: config.replace,
+      replacement: config.replacement.replace(PLACEHOLDER, config.symbol),
+      paths: [tempDir],
+      recursive: true,
+      silent: true
+    })  
+  })
 
   mv(tempDir + '/.gitignore', tempDir + '/gitignore', function (err) {
     if (err) {
@@ -82,13 +95,5 @@ function checkOutAndCopy() {
     }
     console.log('Copying complete!');
     rimraf.sync(tempDir);
-  });
-}
-
-function clearTemplate() {
-  return new Promise(resolve => {
-    rimraf.sync(path.join(__dirname, `/templates/${appPath}/*`));
-    rimraf.sync(path.join(__dirname, `/templates/${appPath}/.*`));
-    resolve();
   });
 }
