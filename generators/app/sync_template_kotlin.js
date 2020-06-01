@@ -33,6 +33,30 @@ function checkOutAndCopy() {
     silent: true
   });
 
+  replace({
+    regex: '<string name="app_name">SampleApp</string>',
+    replacement: '<string name="app_name"><%= appName %></string>',
+    path: [tempDir],
+    recursive: true,
+    silent: true
+  });
+
+  replace({
+    regex: 'compileSdkVersion = 28',
+    replacement: 'compileSdkVersion = <%= androidTargetSdkVersion %>',
+    path: [tempDir],
+    recursive: true,
+    silent: true
+  });
+
+  replace({
+    regex: 'minSdkVersion = 19',
+    replacement: 'minSdkVersion = <%= androidMinSdkVersion %>',
+    path: [tempDir],
+    recursive: true,
+    silent: true
+  });
+
   mv(tempDir + '/.gitignore', tempDir + '/gitignore', function (err) {
     if (err) {
       console.log(err);

@@ -45,10 +45,9 @@ module.exports = class extends Generator {
 
     return this.prompt(prompts).then(props => {
       this.props.appPackage = props.package;
-      this.appName = props.name;
-      this.appPackage = props.package;
-      this.androidTargetSdkVersion = props.targetSdk;
-      this.androidMinSdkVersion = props.minSdk;
+      this.props.appName = props.name;
+      this.props.androidTargetSdkVersion = props.targetSdk;
+      this.props.androidMinSdkVersion = props.minSdk;
     });
   }
 
@@ -76,12 +75,12 @@ module.exports = class extends Generator {
     this.fs.copy(appPath + 'settings.gradle', 'settings.gradle');
     this.fs.copy(appPath + 'app/gitignore', 'app/.gitignore');
 
-    this.fs.copy(appPath + 'buildconfig/dependencies.gradle', 'buildconfig/dependencies.gradle');
-
     this.fs.copy(appPath + 'gradle', 'gradle');
     this.fs.copy(appPath + 'app/src/main/res', 'app/src/main/res');
 
     const currentPath = 'com/example/app'
+
+    this.fs.copyTpl(appPath + 'buildconfig/dependencies.gradle', 'buildconfig/dependencies.gradle', this.props);
 
     this.fs.copyTpl(appPath + 'app/proguard-rules.pro', 'app/proguard-rules.pro', this.props);
     
