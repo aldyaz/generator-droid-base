@@ -11,9 +11,11 @@ module.exports = class extends Generator {
       super(args,opts);
   }
 
-  async prompting() {
+  initializing() {
     this.props = {};
+  }
 
+  async prompting() {
     this.log(yosay(
       'Welcome to ' + chalk.red('Skeleton Android Project') + ' generator!'
     ));
@@ -93,6 +95,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(appPath + 'app/src/main/kotlin/' + currentPath, 'app/src/main/kotlin/' + packageDir, this.props);
     this.fs.copyTpl(appPath + 'app/src/main/res/layout', 'app/src/main/res/layout', this.props);
     this.fs.copyTpl(appPath + 'app/src/test/kotlin/' + currentPath, 'app/src/test/kotlin/' + packageDir, this.props);
+    this.fs.copyTpl(appPath + 'app/src/main/res/values/strings.xml', this.props);
   }
 
   end() {

@@ -41,12 +41,12 @@ function checkOutAndCopy() {
       replacement: `<string name="app_name">${PLACEHOLDER}</string>`
     },
     {
-      symbol: '<%= androidMinSdkVersion %>',
+      symbol: '<%= androidTargetSdkVersion %>',
       replace: 'compileSdkVersion = 28',
       replacement: `compileSdkVersion = ${PLACEHOLDER}`
     },
     {
-      symbol: '<%= appName %>',
+      symbol: '<%= androidMinSdkVersion %>',
       replace: 'minSdkVersion = 19',
       replacement: `minSdkVersion = ${PLACEHOLDER}`
     }

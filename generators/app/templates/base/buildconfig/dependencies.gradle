@@ -1,6 +1,6 @@
 ext {
-    compileSdkVersion = <%= androidMinSdkVersion %>
-    minSdkVersion = <%= appName %>
+    compileSdkVersion = <%= androidTargetSdkVersion %>
+    minSdkVersion = <%= androidMinSdkVersion %>
     buildToolsVersion = "28.0.3"
 
     kotlinVersion = '1.3.70'
