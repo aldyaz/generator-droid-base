@@ -75,10 +75,14 @@ module.exports = class extends Generator {
     this.fs.copy(appPath + 'gradlew', 'gradlew');
     this.fs.copy(appPath + 'gradlew.bat', 'gradlew.bat');
     this.fs.copy(appPath + 'settings.gradle', 'settings.gradle');
+
     this.fs.copy(appPath + 'app/gitignore', 'app/.gitignore');
+    this.fs.copy(appPath + 'domain/gitignore', 'domain/.gitignore');
+    this.fs.copy(appPath + 'data/gitignore', 'data/.gitignore');
 
     this.fs.copy(appPath + 'gradle', 'gradle');
     this.fs.copy(appPath + 'app/src/main/res', 'app/src/main/res');
+    this.fs.copy(appPath + 'data/src/main/res', 'data/src/main/res');
 
     const appModulePath = 'com/example/app'
     const domainModulePath = 'com/example/domain'
