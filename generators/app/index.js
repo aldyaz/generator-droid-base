@@ -68,6 +68,14 @@ module.exports = class extends Generator {
     mkdirp('app/src/test/resources');
     mkdirp('app/src/test/kotlin/' + packageDir);
 
+    mkdirp('domain');
+    mkdirp('domain/src/main/kotlin/' + packageDir);
+
+    mkdirp('data');
+    mkdirp('data/src/main/assets');
+    mkdirp('data/src/main/kotlin/' + packageDir);
+    mkdirp('data/src/test/kotlin/' + packageDir);
+
     var appPath = this.sourceRoot() + '/' + appFolder + '/';
 
     this.fs.copy(appPath + 'gitignore', '.gitignore');
