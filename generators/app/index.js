@@ -88,6 +88,7 @@ module.exports = class extends Generator {
     
     this.fs.copyTpl(appPath + 'README.md', 'README.md', this.props);
     this.fs.copyTpl(appPath + 'build.gradle', 'build.gradle', this.props);
+
     this.fs.copyTpl(appPath + 'app/build.gradle', 'app/build.gradle', this.props);
 
     this.fs.copyTpl(appPath + 'app/src/main/res/values/strings.xml', 'app/src/main/res/values/strings.xml', this.props);
@@ -96,6 +97,8 @@ module.exports = class extends Generator {
     this.fs.copyTpl(appPath + 'app/src/main/kotlin/' + currentPath, 'app/src/main/kotlin/' + packageDir, this.props);
     this.fs.copyTpl(appPath + 'app/src/main/res/layout', 'app/src/main/res/layout', this.props);
     this.fs.copyTpl(appPath + 'app/src/test/kotlin/' + currentPath, 'app/src/test/kotlin/' + packageDir, this.props);
+
+    this.fs.copyTpl(appPath + 'domain/src/main/kotlin/' + currentPath, 'domain/src/main/kotlin/' + packageDir, this.props);
 
     this.fs.copyTpl(appPath + 'data/src/main/res/values/strings.xml', 'data/src/main/res/values/strings.xml', this.props);
     this.fs.copyTpl(appPath + 'data/src/main/AndroidManifest.xml', 'data/src/main/AndroidManifest.xml', this.props);
