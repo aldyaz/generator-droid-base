@@ -25,12 +25,19 @@ ext {
     mockitoKotlinVersion = '2.2.0'
     dexmakerMockitoVersion = '2.19.1'
     robolectricVersion = '4.0.1'
+    javaxAnnotationVersion = '1.0'
+    javaxInjectVersion = '1'
 
     kotlin = [
             classpath : "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion",
             stdlib    : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
             allopen   : "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion",
             stdlibJdk7: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    ]
+
+    java = [
+            javaxInject: "javax.inject:javax.inject:$javaxInjectVersion",
+            javaxAnnotation: "javax.annotation:jsr250-api:$javaxAnnotationVersion"
     ]
 
     androidStudio = [

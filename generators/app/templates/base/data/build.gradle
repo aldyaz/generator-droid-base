@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -6,26 +6,26 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion rootProject.buildToolsVersion
-
     defaultConfig {
-        applicationId "<%= appPackage %>"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.compileSdkVersion
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
     }
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
+        }
+        release {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
-        release.java.srcDirs += 'src/release/kotlin'
-        debug.java.srcDirs += 'src/debug/kotlin'
-        androidTest.java.srcDirs += 'src/androidTest/kotlin'
         test.java.srcDirs += 'src/test/kotlin'
     }
     compileOptions {
@@ -38,35 +38,21 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(path: ':domain')
-    implementation project(path: ':data')
+
+    api rootProject.kotlin.stdlib
 
     implementation rootProject.androidX.appCompat
-    implementation rootProject.androidX.core
-    implementation rootProject.androidX.design
-    implementation rootProject.androidX.supportAnnotations
-    implementation rootProject.androidX.ktx
 
-    implementation rootProject.androidX.lifecycleExtension
-    kapt rootProject.androidX.lifecycleCompiler
+    api rootProject.net.retrofit
+    api rootProject.net.gsonConverter
+    api rootProject.net.rxJavaAdapter
+    api rootProject.net.okHttpLogging
 
-    implementation rootProject.rx.rxAndroid
-
-    implementation rootProject.dagger.core
-    implementation rootProject.dagger.android
-    implementation rootProject.dagger.androidSupport
-    kapt rootProject.dagger.processor
-    kapt rootProject.dagger.compiler
-
-    implementation rootProject.glide.core
-    implementation rootProject.stetho.core
+    api rootProject.rx.rxJava
 
     testImplementation rootProject.test.junit
 
     androidTestImplementation rootProject.test.androidRunner
     androidTestImplementation rootProject.test.androidRules
     androidTestImplementation rootProject.test.espressoCore
-}
-
-repositories {
-    mavenCentral()
 }

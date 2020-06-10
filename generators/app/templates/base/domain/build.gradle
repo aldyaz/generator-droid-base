@@ -1,0 +1,21 @@
+apply plugin: 'java-library'
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation rootProject.kotlin.stdlib
+    implementation rootProject.rx.rxJava
+    implementation rootProject.net.gsonConverter
+    implementation rootProject.java.javaxInject
+    implementation rootProject.java.javaxAnnotation
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+}
+
