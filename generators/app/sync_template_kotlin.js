@@ -84,6 +84,20 @@ function checkOutAndCopy() {
     console.log('Renamed app folder .gitignore');
   });
 
+  mv(tempDir + '/domain/.gitignore', tempDir + '/domain/gitignore', function (err) {
+    if (err) {
+      console.log(err);
+    }
+    console.log('Renamed domain folder .gitignore');
+  });
+
+  mv(tempDir + '/data/.gitignore', tempDir + '/data/gitignore', function (err) {
+    if (err) {
+      console.log(err);
+    }
+    console.log('Renamed data folder .gitignore');
+  });
+
   rimraf.sync(path.join(__dirname, '/tmp/.git'));
 
   console.log('Copying files to ./templates/' + appPath);
