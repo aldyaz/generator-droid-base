@@ -4,11 +4,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 
 
-/**
- * @author Aldyaz Nugroho on 29/04/20.
- * https://github.com/aldyaz
- */
-
 inline fun FragmentManager.replaceSingle(
     tag: String,
     layout: Int,

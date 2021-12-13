@@ -7,20 +7,14 @@ import dagger.android.AndroidInjectionModule
 import dagger.android.support.AndroidSupportInjectionModule
 
 
-/**
- * @author Aldyaz Nugroho on 29/04/20.
- * https://github.com/aldyaz
- */
-
 @Component(
     modules = [
         AndroidInjectionModule::class,
-        AndroidSupportInjectionModule::class,
-        MainModule::class,
-        ViewModelModule::class
+        AndroidSupportInjectionModule::class
     ]
 )
 interface AppComponent {
+
     @Component.Builder
     interface Builder {
         @BindsInstance

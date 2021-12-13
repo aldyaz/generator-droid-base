@@ -2,7 +2,7 @@ package com.example.domain.base.usecase
 
 import com.example.domain.base.executor.PostExecutionThread
 import com.example.domain.base.executor.ThreadExecutor
-import io.reactivex.Single
+import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 
 

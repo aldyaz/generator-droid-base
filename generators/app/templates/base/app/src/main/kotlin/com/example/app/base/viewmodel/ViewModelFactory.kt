@@ -6,15 +6,12 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 
-/**
- * @author Aldyaz Nugroho on 01/06/20.
- * https://github.com/aldyaz
- */
 class ViewModelFactory @Inject constructor(
     private val creators: Map<Class<out ViewModel>,
             @JvmSuppressWildcards Provider<ViewModel>>
 ) : ViewModelProvider.Factory {
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         val creator = creators[modelClass]
             ?: creators.toList().find {
                 modelClass.isAssignableFrom(it.first)

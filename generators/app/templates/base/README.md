@@ -4,7 +4,8 @@ https://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/
 
 ## Stuff Included
 - Android Architecture Components
+- Coroutines
 - Dagger 2
 - Retrofit & OkHttp
 - RxJava & RxAndroid
-- Android KTX
+- Android KTX 

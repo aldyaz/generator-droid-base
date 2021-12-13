@@ -5,10 +5,6 @@ import dagger.MapKey
 import kotlin.reflect.KClass
 
 
-/**
- * @author Aldyaz Nugroho on 01/06/20.
- * https://github.com/aldyaz
- */
 @MustBeDocumented
 @Target(
     AnnotationTarget.FUNCTION,
