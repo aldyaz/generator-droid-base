@@ -1,9 +1,7 @@
-'use strict';
-
 import Generator from 'yeoman-generator';
 import mkdirp from 'mkdirp';
 import yosay from 'yosay';
-import { red, blue } from 'chalk';
+import chalk from 'chalk';
 
 export default class extends Generator {
 
@@ -17,7 +15,7 @@ export default class extends Generator {
 
   async prompting() {
     this.log(yosay(
-      'Welcome to ' + red('Skeleton Android Project') + ' generator!'
+      'Welcome to ' + chalk.red('Skeleton Android Project') + ' generator!'
     ));
 
     const prompts = [
@@ -124,6 +122,6 @@ export default class extends Generator {
   }
 
   end() {
-    this.log(yosay(blue('Successfully creating project!')));
+    this.log(yosay(chalk.blue('Successfully creating project!')));
   }
 };

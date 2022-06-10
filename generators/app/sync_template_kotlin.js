@@ -1,5 +1,3 @@
-'use strict';
-
 import { join } from 'path';
 import { sync } from 'rimraf';
 import sgit from 'simple-git';
