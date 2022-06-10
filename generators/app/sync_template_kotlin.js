@@ -29,7 +29,7 @@ function clearTemplate() {
     resolve();
   });
 }
-  
+
 function checkOutAndCopy() {
   console.log('Setting up code base…');
 
