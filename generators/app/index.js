@@ -1,11 +1,11 @@
 'use strict';
 
-const Generator = require('yeoman-generator');
-const mkdirp = require('mkdirp');
-const yosay = require('yosay');
-const chalk = require('chalk');
+import Generator from 'yeoman-generator';
+import mkdirp from 'mkdirp';
+import yosay from 'yosay';
+import { red, blue } from 'chalk';
 
-module.exports = class extends Generator {
+export default class extends Generator {
 
   constructor(args, opts) {
       super(args,opts);
@@ -17,7 +17,7 @@ module.exports = class extends Generator {
 
   async prompting() {
     this.log(yosay(
-      'Welcome to ' + chalk.red('Skeleton Android Project') + ' generator!'
+      'Welcome to ' + red('Skeleton Android Project') + ' generator!'
     ));
 
     const prompts = [
@@ -124,6 +124,6 @@ module.exports = class extends Generator {
   }
 
   end() {
-    this.log(yosay(chalk.blue('Successfully creating project!')));
+    this.log(yosay(blue('Successfully creating project!')));
   }
 };

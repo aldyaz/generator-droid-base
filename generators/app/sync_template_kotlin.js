@@ -1,18 +1,18 @@
 'use strict';
 
-const path = require('path');
-const rimraf = require('rimraf');
-const sgit = require('simple-git/promise');
-const mv = require('mv');
-const replace = require('replace');
-const ncp = require('ncp').ncp;
+import { join } from 'path';
+import { sync } from 'rimraf';
+import sgit from 'simple-git';
+import mv from 'mv';
+import replace from 'replace';
+import { ncp } from 'ncp';
 
-const tempDir = path.join(__dirname, './tmp');
+const tempDir = join(__dirname, './tmp');
 const appPath = 'base';
 
 console.log('Running… ');
 
-rimraf.sync(tempDir);
+sync(tempDir);
 
 sgit().clone('https://github.com/aldyaz/skeleton-android-project.git', tempDir)
   .then(async function () {
@@ -24,8 +24,8 @@ sgit().clone('https://github.com/aldyaz/skeleton-android-project.git', tempDir)
 
 function clearTemplate() {
   return new Promise(resolve => {
-    rimraf.sync(path.join(__dirname, `/templates/${appPath}/*`));
-    rimraf.sync(path.join(__dirname, `/templates/${appPath}/.*`));
+    sync(join(__dirname, `/templates/${appPath}/*`));
+    sync(join(__dirname, `/templates/${appPath}/.*`));
     resolve();
   });
 }
@@ -98,16 +98,16 @@ function checkOutAndCopy() {
     console.log('Renamed data folder .gitignore');
   });
 
-  rimraf.sync(path.join(__dirname, '/tmp/.git'));
+  sync(join(__dirname, '/tmp/.git'));
 
   console.log('Copying files to ./templates/' + appPath);
 
   ncp.limit = 1600;
-  ncp(tempDir, path.join(__dirname, 'templates/' + appPath), function (err) {
+  ncp(tempDir, join(__dirname, 'templates/' + appPath), function (err) {
     if (err) {
       return console.error(err);
     }
     console.log('Copying complete!');
-    rimraf.sync(tempDir);
+    sync(tempDir);
   });
 }
