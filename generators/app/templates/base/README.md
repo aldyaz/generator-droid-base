@@ -3,9 +3,11 @@ An 'ready-set-go' Android project template that reduce time to create same proje
 https://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/
 
 ## Stuff Included
+- Clean Architecture Project Structure
 - Android Architecture Components
-- Coroutines
-- Dagger 2
+- Jetpack Compose
+- Hilt x Dagger 2
+- Kotlin Coroutines & Flow
 - Retrofit & OkHttp
-- RxJava & RxAndroid
-- Android KTX 
+- Moshi
+- Stetho
