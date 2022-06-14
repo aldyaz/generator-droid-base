@@ -34,7 +34,7 @@ export default class extends Generator {
         name: 'targetSdk',
         message: 'What Android SDK will you be targeting?',
         store: true,
-        default: 29
+        default: 30
       },
       {
         name: 'minSdk',
