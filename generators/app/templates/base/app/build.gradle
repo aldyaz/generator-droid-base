@@ -1,6 +1,6 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-android'
+    id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
 }
@@ -11,7 +11,7 @@ android {
     buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
-        applicationId "<%= appPackage %>"
+        applicationId "com.aldyaz.movix"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
@@ -24,6 +24,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -41,6 +44,10 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 
     composeOptions {
@@ -67,34 +74,40 @@ dependencies {
     implementation rootProject.androidX.constraintLayout
     implementation rootProject.androidX.activityCompose
 
+    implementation rootProject.net.retrofit
+    implementation rootProject.net.okHttpLogging
+
     implementation rootProject.google.material
 
     implementation rootProject.lifecycle.viewModel
     implementation rootProject.lifecycle.liveData
 
-    implementation rootProject.rx.rxJava
-    implementation rootProject.rx.rxAndroid
+    implementation rootProject.google.hiltAndroid
 
-    implementation rootProject.dagger.core
-    implementation rootProject.dagger.android
-    implementation rootProject.dagger.androidSupport
-
-    implementation rootProject.hilt.android
-
-    implementation rootProject.coroutines.android
-
-    kapt rootProject.dagger.processor
-    kapt rootProject.dagger.compiler
-    kapt rootProject.hilt.compiler
+    kapt rootProject.google.hiltCompiler
+    kapt rootProject.androidX.hiltCompiler
     kapt rootProject.lifecycle.compiler
 
     implementation rootProject.glide.core
     implementation rootProject.stetho.core
 
     implementation rootProject.compose.ui
-    implementation rootProject.compose.tooling
+    implementation rootProject.compose.toolingPreview
     implementation rootProject.compose.foundation
     implementation rootProject.compose.material
+    implementation rootProject.compose.lifecycleViewModel
+    implementation rootProject.compose.runtimeLiveData
+
+    implementation rootProject.coroutines.core
+    implementation rootProject.coroutines.android
+
+    implementation rootProject.net.moshiConverter
+    implementation rootProject.net.moshiKotlin
+
+    debugImplementation rootProject.net.chuckerDebug
+    releaseImplementation rootProject.net.chuckerRelease
+
+    debugImplementation rootProject.compose.tooling
 
     testImplementation rootProject.test.junit
 

@@ -7,10 +7,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation rootProject.kotlin.stdlib
-    implementation rootProject.rx.rxJava
     implementation rootProject.net.gsonConverter
     implementation rootProject.java.javaxInject
     implementation rootProject.java.javaxAnnotation
+
+    implementation rootProject.coroutines.core
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8

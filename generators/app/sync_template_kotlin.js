@@ -1,10 +1,17 @@
-import { join } from 'path';
-import { sync } from 'rimraf';
+import path from 'path';
+import rimrafBase from 'rimraf';
 import sgit from 'simple-git';
 import mv from 'mv';
 import replace from 'replace';
-import { ncp } from 'ncp';
+import ncpBase from 'ncp';
+import { fileURLToPath } from 'url';
 
+const { join } = path;
+const { sync } = rimrafBase;
+const { ncp } = ncpBase;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const tempDir = join(__dirname, './tmp');
 const appPath = 'base';
 

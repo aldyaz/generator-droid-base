@@ -4,15 +4,14 @@ ext {
     targetSdkVersion = 30
     buildToolsVersion = "30.0.3"
 
-    kotlinVersion = '1.7.0'
+    kotlinVersion = '1.6.10'
     gradlePluginVersion = '7.0.0'
     googleMaterialVersion = '1.4.0'
     androidArchVersion = '1.1.1'
     retrofitVersion = '2.9.0'
     okHttpVersion = '4.9.1'
-    rxJavaVersion = '3.1.3'
     rxAndroidVersion = '3.0.0'
-    daggerVersion = '2.40.5'
+    daggerVersion = '2.42'
 
     androidxCoreVersion = '1.8.0'
     androidxAppCompatVersion = '1.4.2'
@@ -22,9 +21,10 @@ ext {
     androidXAnnotationVersion = '1.3.0'
     androidXBrowser = '1.4.0'
     androidXConstraintLayoutVersion = '2.1.2'
-    androidXLifecycleVersion = '2.4.0'
+    androidXLifecycleVersion = '2.4.1'
     androidXArchVersion = '2.1.0'
     androidXActivityCompose = '1.4.0'
+    androidXHiltVersion = '1.0.0'
 
     aacVersion = '2.2.0'
     glideVersion = '4.9.0'
@@ -46,6 +46,13 @@ ext {
     composeUiToolingVersion = '1.1.1'
     composeFoundationVersion = '1.1.1'
     composeMaterialVersion = '1.1.1'
+    composeLifecycleViewModelVersion = '2.4.1'
+    composeRuntimeVersion = '1.1.1'
+
+    moshiVersion = '1.13.0'
+    chuckerVersion = '3.5.2'
+
+    coroutinesVersion = '1.6.2'
 
     kotlin = [
             classpath : "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion",
@@ -72,7 +79,8 @@ ext {
             annotation        : "androidx.annotation:annotation:$androidXAnnotationVersion",
             browser           : "androidx.browser:browser:$androidXBrowser",
             constraintLayout  : "androidx.constraintlayout:constraintlayout:$androidXConstraintLayoutVersion",
-            activityCompose   : "androidx.activity:activity-compose:$androidXActivityCompose"
+            activityCompose   : "androidx.activity:activity-compose:$androidXActivityCompose",
+            hiltCompiler      : "androidx.hilt:hilt-compiler:$androidXHiltVersion"
     ]
 
     lifecycle = [
@@ -82,27 +90,26 @@ ext {
     ]
 
     google = [
-            material    : "com.google.android.material:material:$googleMaterialVersion"
+            material: "com.google.android.material:material:$googleMaterialVersion",
+            daggerCore: "com.google.dagger:dagger:$daggerVersion",
+            daggerAndroid: "com.google.dagger:dagger-android:$daggerVersion",
+            daggerAndroidSupport: "com.google.dagger:dagger-android-support:$daggerVersion",
+            daggerProcessor: "com.google.dagger:dagger-android-processor:$daggerVersion",
+            daggerCompiler: "com.google.dagger:dagger-compiler:$daggerVersion",
+            hiltClasspath: "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion",
+            hiltAndroid: "com.google.dagger:hilt-android:$hiltVersion",
+            hiltCompiler: "com.google.dagger:hilt-android-compiler:$hiltVersion"
     ]
 
     net = [
             retrofit     : "com.squareup.retrofit2:retrofit:$retrofitVersion",
             gsonConverter: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
-            rxJavaAdapter: "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
-            okHttpLogging: "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
-    ]
-
-    rx = [
-            rxJava   : "io.reactivex.rxjava3:rxjava:$rxJavaVersion",
-            rxAndroid: "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion"
-    ]
-
-    dagger = [
-            core          : "com.google.dagger:dagger:$daggerVersion",
-            android       : "com.google.dagger:dagger-android:$daggerVersion",
-            androidSupport: "com.google.dagger:dagger-android-support:$daggerVersion",
-            processor     : "com.google.dagger:dagger-android-processor:$daggerVersion",
-            compiler      : "com.google.dagger:dagger-compiler:$daggerVersion"
+            moshiConverter: "com.squareup.retrofit2:converter-moshi:$retrofitVersion",
+            okHttpLogging: "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
+            moshiKotlin: "com.squareup.moshi:moshi-kotlin:$moshiVersion",
+            moshiKotlinCodegen: "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion",
+            chuckerDebug: "com.github.chuckerteam.chucker:library:$chuckerVersion",
+            chuckerRelease: "com.github.chuckerteam.chucker:library-no-op:$chuckerVersion"
     ]
 
     glide = [
@@ -118,17 +125,19 @@ ext {
             android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     ]
 
-    hilt = [
-            classpath   : "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion",
-            android     : "com.google.dagger:hilt-android:$hiltVersion",
-            compiler    : "com.google.dagger:hilt-android-compiler:$hiltVersion"
-    ]
-
     compose = [
             ui: "androidx.compose.ui:ui:$composeUiVersion",
             tooling: "androidx.compose.ui:ui-tooling:$composeUiToolingVersion",
+            toolingPreview: "androidx.compose.ui:ui-tooling-preview:$composeUiToolingVersion",
             foundation: "androidx.compose.foundation:foundation:$composeFoundationVersion",
-            material: "androidx.compose.material:material:$composeMaterialVersion"
+            material: "androidx.compose.material:material:$composeMaterialVersion",
+            lifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel-compose:$composeLifecycleViewModelVersion",
+            runtimeLiveData: "androidx.compose.runtime:runtime-livedata:$composeRuntimeVersion"
+    ]
+
+    coroutines = [
+            core: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
+            android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     ]
 
     test = [

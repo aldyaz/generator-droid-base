@@ -1,20 +1,23 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
 
 android {
+
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion rootProject.buildToolsVersion
+
     defaultConfig {
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.compileSdkVersion
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
+
     buildTypes {
         debug {
             minifyEnabled false
@@ -24,13 +27,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
         test.java.srcDirs += 'src/test/kotlin'
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
@@ -44,11 +53,17 @@ dependencies {
     implementation rootProject.androidX.appCompat
 
     implementation rootProject.net.retrofit
-    implementation rootProject.net.gsonConverter
-    implementation rootProject.net.rxJavaAdapter
     implementation rootProject.net.okHttpLogging
 
-    implementation rootProject.rx.rxJava
+    implementation rootProject.google.hiltAndroid
+
+    implementation rootProject.net.moshiConverter
+    implementation rootProject.net.moshiKotlin
+
+    implementation rootProject.coroutines.core
+
+    kapt rootProject.google.hiltCompiler
+    kapt rootProject.androidX.hiltCompiler
 
     testImplementation rootProject.test.junit
 
