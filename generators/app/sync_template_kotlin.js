@@ -103,6 +103,13 @@ function checkOutAndCopy() {
     console.log('Renamed data folder .gitignore');
   });
 
+  mv(tempDir + '/buildSrc/.gitignore', tempDir + '/buildSrc/gitignore', function (err) {
+    if (err) {
+      console.log(err);
+    }
+    console.log('Renamed data folder .gitignore');
+  });
+
   sync(join(__dirname, '/tmp/.git'));
 
   console.log('Copying files to ./templates/' + appPath);

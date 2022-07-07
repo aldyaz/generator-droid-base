@@ -7,13 +7,13 @@ plugins {
 
 android {
 
-    compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
+    compileSdkVersion Configs.compileSdkVersion
+    buildToolsVersion Configs.buildToolsVersion
 
     defaultConfig {
         applicationId "com.aldyaz.movix"
-        minSdkVersion rootProject.minSdkVersion
-        targetSdkVersion rootProject.targetSdkVersion
+        minSdkVersion Configs.minSdkVersion
+        targetSdkVersion Configs.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -51,7 +51,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion rootProject.kotlinCompilerExtVersion
+        kotlinCompilerExtensionVersion KotlinLib.kotlinComposeCompilerExtVersion
     }
 }
 
@@ -66,52 +66,52 @@ dependencies {
     implementation project(path: ':domain')
     implementation project(path: ':data')
 
-    implementation rootProject.androidX.appCompat
-    implementation rootProject.androidX.core
-    implementation rootProject.androidX.annotation
-    implementation rootProject.androidX.recyclerView
-    implementation rootProject.androidX.cardView
-    implementation rootProject.androidX.constraintLayout
-    implementation rootProject.androidX.activityCompose
+    implementation AndroidX.appCompat
+    implementation AndroidX.core
+    implementation AndroidX.annotationLib
+    implementation AndroidX.recyclerView
+    implementation AndroidX.cardView
+    implementation AndroidX.constraintLayout
+    implementation AndroidX.activityCompose
 
-    implementation rootProject.net.retrofit
-    implementation rootProject.net.okHttpLogging
+    implementation Net.retrofit
+    implementation Net.okHttpLogging
 
-    implementation rootProject.google.material
+    implementation Google.material
 
-    implementation rootProject.lifecycle.viewModel
-    implementation rootProject.lifecycle.liveData
+    implementation AndroidLifecycle.viewModel
+    implementation AndroidLifecycle.liveData
 
-    implementation rootProject.google.hiltAndroid
+    implementation Google.hiltAndroid
 
-    kapt rootProject.google.hiltCompiler
-    kapt rootProject.androidX.hiltCompiler
-    kapt rootProject.lifecycle.compiler
+    kapt Google.hiltCompiler
+    kapt AndroidX.hiltCompiler
+    kapt AndroidLifecycle.compiler
 
-    implementation rootProject.glide.core
-    implementation rootProject.stetho.core
+    implementation ImageLib.glide
+    implementation DebugLib.stetho
 
-    implementation rootProject.compose.ui
-    implementation rootProject.compose.toolingPreview
-    implementation rootProject.compose.foundation
-    implementation rootProject.compose.material
-    implementation rootProject.compose.lifecycleViewModel
-    implementation rootProject.compose.runtimeLiveData
+    implementation Compose.ui
+    implementation Compose.toolingPreview
+    implementation Compose.foundation
+    implementation Compose.material
+    implementation Compose.lifecycleViewModel
+    implementation Compose.runtimeLiveData
 
-    implementation rootProject.coroutines.core
-    implementation rootProject.coroutines.android
+    implementation Coroutines.core
+    implementation Coroutines.android
 
-    implementation rootProject.net.moshiConverter
-    implementation rootProject.net.moshiKotlin
+    implementation Net.moshiConverter
+    implementation Net.moshiKotlin
 
-    debugImplementation rootProject.net.chuckerDebug
-    releaseImplementation rootProject.net.chuckerRelease
+    debugImplementation Net.chuckerDebug
+    releaseImplementation Net.chuckerRelease
 
-    debugImplementation rootProject.compose.tooling
+    debugImplementation Compose.tooling
 
-    testImplementation rootProject.test.junit
+    testImplementation TestLib.junit
 
-    androidTestImplementation rootProject.test.androidRunner
-    androidTestImplementation rootProject.test.androidRules
-    androidTestImplementation rootProject.test.espressoCore
+    androidTestImplementation TestLib.androidRunner
+    androidTestImplementation TestLib.androidRules
+    androidTestImplementation TestLib.espressoCore
 }

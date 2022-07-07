@@ -2,17 +2,15 @@
 
 buildscript {
 
-    apply from: 'buildconfig/dependencies.gradle'
-
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath androidGradle.classpath
-        classpath kotlin.classpath
-        classpath google.hiltClasspath
+        classpath GradleLib.classpath
+        classpath KotlinLib.classpath
+        classpath Google.hiltClasspath
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
