@@ -1,11 +1,11 @@
 object Compose {
 
-    private const val uiVersion = "1.1.1"
-    private const val toolingVersion = "1.1.1"
-    private const val foundationVersion = "1.1.1"
-    private const val materialVersion = "1.1.1"
-    private const val lifecycleViewModelVersion = "2.4.1"
-    private const val runtimeVersion = "1.1.1"
+    private const val uiVersion = "1.2.1"
+    private const val toolingVersion = "1.2.1"
+    private const val foundationVersion = "1.2.1"
+    private const val materialVersion = "1.2.1"
+    private const val lifecycleViewModelVersion = "2.5.1"
+    private const val runtimeVersion = "1.2.1"
     private const val navigationComposeVersion = "2.4.2"
     private const val hiltNavigationComposeVersion = "1.0.0"
 

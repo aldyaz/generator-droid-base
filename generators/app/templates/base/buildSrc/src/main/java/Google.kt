@@ -2,7 +2,7 @@ object Google {
 
     private const val materialVersion = "1.4.0"
     private const val daggerVersion = "2.42"
-    private const val hiltVersion = "2.38.1"
+    private const val hiltVersion = "2.44"
 
     const val material = "com.google.android.material:material:$materialVersion"
     const val daggerCore = "com.google.dagger:dagger:$daggerVersion"
