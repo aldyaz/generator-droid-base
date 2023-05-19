@@ -50,8 +50,6 @@ dependencies {
 
     api KotlinLib.stdlib
 
-    implementation AndroidX.appCompat
-
     implementation Net.retrofit
     implementation Net.okHttpLogging
 
@@ -60,14 +58,13 @@ dependencies {
     implementation Net.moshiConverter
     implementation Net.moshiKotlin
 
-    implementation Coroutines.core
+    implementation KotlinLib.coroutinesCore
 
     kapt Google.hiltCompiler
     kapt AndroidX.hiltCompiler
 
     testImplementation TestLib.junit
-
-    androidTestImplementation TestLib.androidRunner
-    androidTestImplementation TestLib.androidRules
-    androidTestImplementation TestLib.espressoCore
+    testImplementation TestLib.core
+    testImplementation TestLib.mockitoKotlin
+    testImplementation TestLib.mockk
 }

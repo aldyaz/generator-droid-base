@@ -51,7 +51,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion KotlinLib.kotlinComposeCompilerExtVersion
+        kotlinCompilerExtensionVersion Compose.compilerVersion
     }
 }
 
@@ -66,13 +66,9 @@ dependencies {
     implementation project(path: ':domain')
     implementation project(path: ':data')
 
-    implementation AndroidX.appCompat
     implementation AndroidX.core
     implementation AndroidX.annotationLib
-    implementation AndroidX.recyclerView
-    implementation AndroidX.cardView
-    implementation AndroidX.constraintLayout
-    implementation AndroidX.activityCompose
+    implementation Compose.activityCompose
 
     implementation Net.retrofit
     implementation Net.okHttpLogging
@@ -88,18 +84,14 @@ dependencies {
     kapt AndroidX.hiltCompiler
     kapt AndroidLifecycle.compiler
 
-    implementation ImageLib.glide
-    implementation DebugLib.stetho
-
     implementation Compose.ui
-    implementation Compose.toolingPreview
     implementation Compose.foundation
     implementation Compose.material
     implementation Compose.lifecycleViewModel
     implementation Compose.runtimeLiveData
 
-    implementation Coroutines.core
-    implementation Coroutines.android
+    implementation KotlinLib.coroutinesCore
+    implementation KotlinLib.coroutinesAndroid
 
     implementation Net.moshiConverter
     implementation Net.moshiKotlin
@@ -107,11 +99,8 @@ dependencies {
     debugImplementation Net.chuckerDebug
     releaseImplementation Net.chuckerRelease
 
-    debugImplementation Compose.tooling
-
     testImplementation TestLib.junit
-
-    androidTestImplementation TestLib.androidRunner
-    androidTestImplementation TestLib.androidRules
-    androidTestImplementation TestLib.espressoCore
+    testImplementation TestLib.core
+    testImplementation TestLib.mockitoKotlin
+    testImplementation TestLib.mockk
 }

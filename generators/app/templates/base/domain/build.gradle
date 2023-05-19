@@ -11,7 +11,7 @@ dependencies {
     implementation JavaLib.javaxInject
     implementation JavaLib.javaxAnnotation
 
-    implementation Coroutines.core
+    implementation KotlinLib.coroutinesCore
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8

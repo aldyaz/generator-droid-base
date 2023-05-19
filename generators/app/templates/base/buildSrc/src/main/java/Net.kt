@@ -1,8 +1,8 @@
 object Net {
 
     private const val retrofitVersion = "2.9.0"
-    private const val okHttpVersion = "4.9.1"
-    private const val moshiVersion = "1.13.0"
+    private const val okHttpVersion = "4.10.0"
+    private const val moshiVersion = "1.14.0"
     private const val chuckerVersion = "3.5.2"
 
     const val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
