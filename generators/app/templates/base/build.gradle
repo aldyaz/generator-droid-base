@@ -8,11 +8,9 @@ buildscript {
     }
 
     dependencies {
-        classpath GradleLib.classpath
-        classpath KotlinLib.classpath
-        classpath Google.hiltClasspath
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath core.gradle.plugin
+        classpath core.kotlin.gradle.plugin
+        classpath core.hilt.android.gradle.plugin
     }
 }
 

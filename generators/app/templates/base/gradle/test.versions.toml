@@ -1,0 +1,20 @@
+[versions]
+kotlin = "1.8.21"
+junit = "4.12"
+android-test = "1.5.0"
+mockito = "5.3.1"
+mockito-kotlin = "5.0.0"
+mockk = "1.13.5"
+
+[libraries]
+junit = { module = "junit:junit", version.ref = "junit" }
+junit-kotlin = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+androidx-core = { group = "androidx.test", name = "core", version.ref = "android-test" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+mockito-android = { group = "org.mockito", name = "mockito-android", version.ref = "mockito" }
+mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockito-kotlin" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+
+[bundles]
+junit = ["junit", "junit-kotlin"]
+mockito = ["mockito-core", "mockito-android", "mockito-kotlin"]

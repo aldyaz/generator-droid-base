@@ -41,29 +41,36 @@ function checkOutAndCopy() {
   const PLACEHOLDER = "_placeholder_"
   const configReplace = [
     {
+      symbol: '<%= appPackage %>',
+      replace: 'com.example.app',
+      replacement: `${PLACEHOLDER}`
+    },
+    {
       symbol: '<%= appName %>',
       replace: '<string name="app_name">SampleApp</string>',
       replacement: `<string name="app_name">${PLACEHOLDER}</string>`
     },
     {
+      symbol: '<%= appName %>',
+      replace: 'rootProject.name = "Skeleton Android Project"',
+      replacement: `rootProject.name = "${PLACEHOLDER}"`
+    },
+    {
       symbol: '<%= androidTargetSdkVersion %>',
-      replace: 'compileSdkVersion = 28',
-      replacement: `compileSdkVersion = ${PLACEHOLDER}`
+      replace: 'compileSdk = "33"',
+      replacement: `compileSdk = ${PLACEHOLDER}`
+    },
+    {
+      symbol: '<%= androidTargetSdkVersion %>',
+      replace: 'targetSdk = "33"',
+      replacement: `targetSdk = ${PLACEHOLDER}`
     },
     {
       symbol: '<%= androidMinSdkVersion %>',
-      replace: 'minSdkVersion = 19',
-      replacement: `minSdkVersion = ${PLACEHOLDER}`
+      replace: 'minSdk = "21"',
+      replacement: `minSdk = ${PLACEHOLDER}`
     }
   ]
-
-  replace({
-    regex: 'com.example.app',
-    replacement: '<%= appPackage %>',
-    paths: [tempDir],
-    recursive: true,
-    silent: true
-  });
 
   configReplace.forEach(config => {
     replace({
@@ -87,27 +94,6 @@ function checkOutAndCopy() {
       console.log(err);
     }
     console.log('Renamed app folder .gitignore');
-  });
-
-  mv(tempDir + '/domain/.gitignore', tempDir + '/domain/gitignore', function (err) {
-    if (err) {
-      console.log(err);
-    }
-    console.log('Renamed domain folder .gitignore');
-  });
-
-  mv(tempDir + '/data/.gitignore', tempDir + '/data/gitignore', function (err) {
-    if (err) {
-      console.log(err);
-    }
-    console.log('Renamed data folder .gitignore');
-  });
-
-  mv(tempDir + '/buildSrc/.gitignore', tempDir + '/buildSrc/gitignore', function (err) {
-    if (err) {
-      console.log(err);
-    }
-    console.log('Renamed data folder .gitignore');
   });
 
   sync(join(__dirname, '/tmp/.git'));

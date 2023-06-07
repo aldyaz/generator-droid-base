@@ -1,0 +1,24 @@
+[versions]
+compose = "1.4.3"
+lifecycle = "2.6.1"
+navigation = "2.5.3"
+hilt-compose = "1.0.0"
+activity = "1.7.2"
+compiler = "1.4.7"
+
+[libraries]
+ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+animation = { module = "androidx.compose.animation:animation", version.ref = "compose" }
+foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
+material = { module = "androidx.compose.material:material", version.ref = "compose" }
+runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "compose" }
+runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "compose" }
+lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
+navigation = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-compose" }
+activity = { module = "androidx.activity:activity-compose", version.ref = "activity" }
+
+[bundles]
+compose = ["ui", "animation", "foundation", "material", "runtime", "runtime-livedata",
+    "lifecycle-viewmodel", "lifecycle-runtime", "navigation", "hilt-navigation", "activity"]
