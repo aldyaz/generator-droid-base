@@ -85,9 +85,10 @@ export default class extends Generator {
     
     this.fs.copyTpl(appPath + 'README.md', 'README.md', this.props);
     this.fs.copyTpl(appPath + 'build.gradle', 'build.gradle', this.props);
-
+    this.fs.copyTpl(appPath + 'settings.gradle', 'settings.gradle', this.props);
+    this.fs.copyTpl(appPath + 'gradle/configs.versions.toml', 'gradle/configs.versions.toml', this.props);
+    
     this.fs.copyTpl(appPath + 'app/build.gradle', 'app/build.gradle', this.props);
-
     this.fs.copyTpl(appPath + 'app/src/main/res/values/strings.xml', 'app/src/main/res/values/strings.xml', this.props);
     this.fs.copyTpl(appPath + 'app/src/androidTest/kotlin/' + appModulePath, 'app/src/androidTest/kotlin/' + packageDir, this.props);
     this.fs.copyTpl(appPath + 'app/src/main/AndroidManifest.xml', 'app/src/main/AndroidManifest.xml', this.props);
