@@ -58,17 +58,17 @@ function checkOutAndCopy() {
     {
       symbol: '<%= androidTargetSdkVersion %>',
       replace: 'compileSdk = "33"',
-      replacement: `compileSdk = ${PLACEHOLDER}`
+      replacement: `compileSdk = "${PLACEHOLDER}"`
     },
     {
       symbol: '<%= androidTargetSdkVersion %>',
       replace: 'targetSdk = "33"',
-      replacement: `targetSdk = ${PLACEHOLDER}`
+      replacement: `targetSdk = "${PLACEHOLDER}"`
     },
     {
       symbol: '<%= androidMinSdkVersion %>',
       replace: 'minSdk = "21"',
-      replacement: `minSdk = ${PLACEHOLDER}`
+      replacement: `minSdk = "${PLACEHOLDER}"`
     }
   ]
 
