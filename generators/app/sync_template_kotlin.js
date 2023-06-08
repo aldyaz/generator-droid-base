@@ -36,7 +36,7 @@ function clearTemplate() {
 }
 
 function checkOutAndCopy() {
-  console.log('Setting up code base…');
+  console.log('Setting up codebase…');
 
   const PLACEHOLDER = "_placeholder_"
   const configReplace = [

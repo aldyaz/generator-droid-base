@@ -78,7 +78,6 @@ export default class extends Generator {
 
     this.fs.copy(appPath + 'gradle', 'gradle');
     this.fs.copy(appPath + 'app/src/main/res', 'app/src/main/res');
-    this.fs.copy(appPath + 'data/src/main/res', 'data/src/main/res');
 
     const appModulePath = 'com/example/app'
 
