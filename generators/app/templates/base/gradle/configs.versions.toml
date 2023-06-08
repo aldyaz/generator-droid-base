@@ -1,7 +1,7 @@
 [versions]
-compileSdk = <%= androidTargetSdkVersion %>
+compileSdk = "<%= androidTargetSdkVersion %>"
 buildTools = "30.0.3"
-minSdk = <%= androidMinSdkVersion %>
-targetSdk = <%= androidTargetSdkVersion %>
+minSdk = "<%= androidMinSdkVersion %>"
+targetSdk = "<%= androidTargetSdkVersion %>"
 appVersionCode = "1"
 appVersionName = "1.0"
