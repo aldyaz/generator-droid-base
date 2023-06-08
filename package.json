@@ -1,6 +1,6 @@
 {
   "name": "generator-droid-base",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "An 'ready-set-go' Android project template that reduce time to create a specific project.",
   "homepage": "https://github.com/aldyaz/generator-droid-base",
   "author": {
